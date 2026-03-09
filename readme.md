@@ -16,7 +16,8 @@ This repository contains hands-on EDA projects built with Jupyter notebooks. Eac
 |--------|-------------|---------|
 | **Project 1 — Books Sales** | Analysis of book sales, ratings, genres, and publisher performance. | `Books_Data_Clean.csv` |
 | **Project 2 — Shopping Behaviour** | Exploration of customer shopping trends and purchasing patterns. | `shopping_trends.csv` |
-| **Project 3 — Netflix Movies & TV Shows** | Analysis of Netflix content distribution, genres, and growth over time. | Netflix dataset |
+| **Project 3 — Netflix Movies & TV Shows** | Analysis of Netflix content distribution, genres, and growth over time. | `netflix_titles.csv` |
+| **Project 4 — Medical Insurance Cost** | Analysis of medical insurance costs and factors affecting premiums. | `insurance.csv` |
 
 ---
 
@@ -26,13 +27,17 @@ This repository contains hands-on EDA projects built with Jupyter notebooks. Eac
 .
 ├── datasets/
 │   ├── Books_Data_Clean.csv
-│   └── shopping_trends.csv
+│   ├── shopping_trends.csv
+│   ├── netflix_titles.csv
+│   └── insurance.csv
 ├── Project1 Books Sales/
 │   └── Books.ipynb
 ├── Project2 Shopping Behavioure/
 │   └── customerShoppingBehavioure.ipynb
 ├── Project3 Netflix Movies & TV Shows Analysis/
 │   └── NetflixAnalysis.ipynb
+├── Project4 Medical Insurance Cost Analysis/
+│   └── insurance.ipynb
 └── readme.md
 ```
 
@@ -88,8 +93,8 @@ This repository contains hands-on EDA projects built with Jupyter notebooks. Eac
 
 - **Books_Data_Clean.csv** — Book metadata, ratings, sales, and publisher information.
 - **shopping_trends.csv** — Customer shopping and trend data for behaviour analysis.
-
-Netflix project may use a separate dataset; refer to the notebook for source and path.
+- **netflix_titles.csv** — Netflix movies and TV shows catalog for content analysis.
+- **insurance.csv** — Medical insurance cost data for cost and premium analysis.
 
 ---
 
