@@ -54,6 +54,9 @@ Choose the right visualization based on your data types:
 | **Project 5 — Heart Disease Analysis** | EDA of heart disease indicators and related health metrics. | `heart.csv` |
 | **Project 6 — Titanic Data Analysis** | Analysis of Titanic passenger data and survival patterns. | `titanic.csv` |
 | **Project 7 — Air Ticket Price Analysis** | Analysis of airline ticket prices and pricing factors. | `airline_ticket_prices_dataset.csv` |
+| **Project 8 — Mini Mart Customer Analysis** | Analysis of mini mart customer behavior and purchasing patterns. | See notebook |
+
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights.
 
 ---
 
@@ -70,19 +73,29 @@ Choose the right visualization based on your data types:
 │   ├── titanic.csv
 │   └── airline_ticket_prices_dataset.csv
 ├── Project1 Books Sales/
-│   └── Books.ipynb
+│   ├── Books.ipynb
+│   └── README.md
 ├── Project2 Shopping Behavioure/
-│   └── customerShoppingBehavioure.ipynb
+│   ├── customerShoppingBehavioure.ipynb
+│   └── README.md
 ├── Project3 Netflix Movies & TV Shows Analysis/
-│   └── NetflixAnalysis.ipynb
+│   ├── NetflixAnalysis.ipynb
+│   └── README.md
 ├── Project4 Medical Insurance Cost Analysis/
-│   └── insurance.ipynb
+│   ├── insurance.ipynb
+│   └── README.md
 ├── Project5 Heart disease Analysis/
-│   └── HeartAnalysis.ipynb
+│   ├── HeartAnalysis.ipynb
+│   └── README.md
 ├── Project6 Titanic Data Analysis/
-│   └── titanicAnalysis.ipynb
+│   ├── titanicAnalysis.ipynb
+│   └── README.md
 ├── Project7 Air Ticket Price Analysis/
-│   └── AirTicketPriceAnalysis.ipynb
+│   ├── AirTicketPriceAnalysis.ipynb
+│   └── README.md
+├── Project8 Mini Mart Customer Analysis/
+│   ├── miniMartCustomerAnalysis.ipynb
+│   └── README.md
 └── readme.md
 ```
 
