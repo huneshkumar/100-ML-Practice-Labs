@@ -75,6 +75,7 @@ Choose the right visualization based on your data types:
 | **Project 12 — ML: Titanic Survival (Logistic Regression)** | Logistic regression model to predict passenger survival from class, sex, age, fare, etc. | Seaborn (titanic) |
 | **Project 13 — Bollywood Movies EDA** | EDA on Bollywood movies: genre, release period, budget, revenue, screens, remakes, and franchises. | `Bollywood_movies.csv` |
 | **Project 14 — General Election 1970–2024** | EDA on NA constituency–level election data: parties, votes, turnout, provinces, and trends over time. | `general_election_1970to2024.csv` |
+| **Project 15 — Kentucky Real Estate** | EDA on Kentucky property listings: price, sqft, beds, baths, type, and year built. | `kentucky_real_estate.csv` |
 
 Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (Projects 9–12 include model and evaluation).
 
@@ -93,7 +94,8 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   ├── airline_ticket_prices_dataset.csv
 │   ├── ford.csv
 │   ├── Bollywood_movies.csv
-│   └── general_election_1970to2024.csv
+│   ├── general_election_1970to2024.csv
+│   └── kentucky_real_estate.csv
 ├── Project1 Books Sales/
 │   ├── Books.ipynb
 │   └── README.md
@@ -135,6 +137,9 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   └── README.md
 ├── Project14 General Election 1970 to 2024/
 │   ├── Election_1970_to_2024.ipynb
+│   └── README.md
+├── Project 15 Kentucky Eeal Estate and analysis/
+│   ├── kentucky_real_estate.ipynb
 │   └── README.md
 └── README.md
 ```
@@ -199,6 +204,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **ford.csv** — Used Ford car listings (model, year, mileage, transmission, fuel type, tax, mpg, engine size) for price prediction.
 - **Bollywood_movies.csv** — Bollywood film metadata, budget, revenue, genre, and release attributes for EDA.
 - **general_election_1970to2024.csv** — General election records (1970–2024): NA constituencies, parties, candidates, votes, provinces, and regional fields.
+- **kentucky_real_estate.csv** — Kentucky real estate listings: list price, sqft, beds, baths, property type, garage, year built, and listing text.
 
 *Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. Project 12 (Titanic Survival) loads Titanic via Seaborn (`sns.load_dataset('titanic')`); no CSV required.*
 
