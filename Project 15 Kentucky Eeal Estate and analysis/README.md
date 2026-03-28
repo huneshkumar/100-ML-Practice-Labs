@@ -1,8 +1,8 @@
-# Project 15 — Kentucky Real Estate (EDA + ML Prep)
+# Project 15 — Kentucky Real Estate (EDA + ML)
 
 ## Problem Statement
 
-Analyze Kentucky real estate listings and prepare a **clean, encoded feature matrix** to predict **list price** (`listPrice`). The notebook combines exploratory analysis, data cleaning, feature engineering, and scaling so you can plug in a regression model in the next cells.
+Analyze Kentucky real estate listings and predict **list price** (`listPrice`) using a full workflow: exploration, cleaning, feature engineering, scaling, **linear regression**, and **R²** evaluation on a held-out test set.
 
 ## Dataset
 
@@ -12,18 +12,18 @@ Analyze Kentucky real estate listings and prepare a **clean, encoded feature mat
 
 ## Analysis Performed
 
-1. **EDA** — Shape, `info`, `describe`, missing values, group-by plots (e.g. price by type, garage counts).
-2. **Data cleaning** — Drop duplicate rows; impute numerics with **median** and categoricals with `"Unknown"`; drop high-cardinality / leaky columns (`text`, `sub_type`, `baths_full_calc`) as in the notebook.
-3. **Feature engineering** — Bin `listPrice` into **price tiers** (`category`); one-hot encode **`type`** and **`category`**; derive **`house_age`** from `year_built` (reference year in notebook); drop raw `year_built` where applicable.
-4. **Scaling** — `StandardScaler` on selected numeric features (dummy columns excluded from scaling per notebook comments).
-5. **Modeling setup** — Build **`X`** (all features except `listPrice`) and **`Y`** = `listPrice` for regression (train/test split and estimator can be added after).
+1. **EDA** — Shape, `info`, `describe`, missing values, visualizations (e.g. price by type, garage).
+2. **Data cleaning** — Drop duplicates; impute numerics with **median** and categoricals with `"Unknown"`; drop columns such as `text`, `sub_type`, `baths_full_calc` as implemented in the notebook.
+3. **Feature engineering** — Price bins → **`category`**; one-hot **`type`** and **`category`**; **`house_age`** from `year_built`; drop `year_built` where applicable.
+4. **Scaling** — `StandardScaler` on selected numeric features (dummy columns excluded per notebook).
+5. **Modeling** — `train_test_split` (e.g. **33%** test, `random_state=42`), **`LinearRegression`**, `fit` / `predict`, **`r2_score`** on test predictions (example run in notebook: R² ≈ **0.77**).
 
 ## Key Insights (Summary)
 
-- Typical price, sqft, and bedroom/bathroom distributions; outliers in garage / extreme prices.
-- Missingness patterns (e.g. `sub_type`, `garage`, `year_built`).
-- How property **type** and **price tier** relate to list price before encoding.
+- Strong baseline from engineered features (sqft, beds, baths, type, price tier, house age).
+- Data quality: missingness and outliers in garage and extreme prices.
+- Residual analysis and alternative models (e.g. regularized regression) can be added as next steps.
 
 ## Tech Stack
 
-Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn (`StandardScaler`), Jupyter Notebook
+Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn (`StandardScaler`, `train_test_split`, `LinearRegression`, `r2_score`), Jupyter Notebook

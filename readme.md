@@ -20,7 +20,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (Projects 9–12) add regression or classification models and evaluation. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12** and **15**) add regression or classification models, train/test evaluation, and metrics (e.g. R²). Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -75,9 +75,9 @@ Choose the right visualization based on your data types:
 | **Project 12 — ML: Titanic Survival (Logistic Regression)** | Logistic regression model to predict passenger survival from class, sex, age, fare, etc. | Seaborn (titanic) |
 | **Project 13 — Bollywood Movies EDA** | EDA on Bollywood movies: genre, release period, budget, revenue, screens, remakes, and franchises. | `Bollywood_movies.csv` |
 | **Project 14 — General Election 1970–2024** | EDA on NA constituency–level election data: parties, votes, turnout, provinces, and trends over time. | `general_election_1970to2024.csv` |
-| **Project 15 — Kentucky Real Estate** | EDA plus data cleaning, feature engineering (price tiers, one-hot `type`/category, `house_age`), `StandardScaler`, and **X / Y** for predicting **list price** (`listPrice`). | `kentucky_real_estate.csv` |
+| **Project 15 — Kentucky Real Estate** | Full pipeline: EDA, cleaning, feature engineering (price tiers, one-hot encoding, `house_age`), scaling, then **linear regression** to predict **list price** (`listPrice`); train/test split and **R²** evaluation. | `kentucky_real_estate.csv` |
 
-Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (Projects 9–12 include trained models and evaluation; Project 15 prepares a modeling-ready dataset for list price).
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15** include trained models and evaluation).
 
 ---
 
@@ -154,7 +154,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 (linear/logistic regression, train/test split, scaling, OpenML, classification metrics, model evaluation); **Project 15** uses preprocessing (e.g. `StandardScaler`) for Kentucky real estate features
+- **Scikit-learn** — for Projects 9–12 and **15** (linear/logistic regression, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
 
 ---
 
@@ -204,7 +204,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **ford.csv** — Used Ford car listings (model, year, mileage, transmission, fuel type, tax, mpg, engine size) for price prediction.
 - **Bollywood_movies.csv** — Bollywood film metadata, budget, revenue, genre, and release attributes for EDA.
 - **general_election_1970to2024.csv** — General election records (1970–2024): NA constituencies, parties, candidates, votes, provinces, and regional fields.
-- **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; used in Project 15 after cleaning and feature engineering.
+- **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; **Project 15** uses it for EDA, feature engineering, and **linear regression** on list price.
 
 *Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. Project 12 (Titanic Survival) loads Titanic via Seaborn (`sns.load_dataset('titanic')`); no CSV required.*
 
