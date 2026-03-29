@@ -76,6 +76,7 @@ Choose the right visualization based on your data types:
 | **Project 13 — Bollywood Movies EDA** | EDA on Bollywood movies: genre, release period, budget, revenue, screens, remakes, and franchises. | `Bollywood_movies.csv` |
 | **Project 14 — General Election 1970–2024** | EDA on NA constituency–level election data: parties, votes, turnout, provinces, and trends over time. | `general_election_1970to2024.csv` |
 | **Project 15 — Kentucky Real Estate** | Full pipeline: EDA, cleaning, feature engineering (price tiers, one-hot encoding, `house_age`), scaling, then **linear regression** to predict **list price** (`listPrice`); train/test split and **R²** evaluation. | `kentucky_real_estate.csv` |
+| **Project 16 — Fitness Tracker E-commerce** | EDA on wearable / smartwatch product data: preprocessing, **ydata-profiling** reports, univariate plots (histogram, density, box), multivariate (heatmap, scatter). | `smartwatches.csv` |
 
 Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15** include trained models and evaluation).
 
@@ -95,7 +96,10 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   ├── ford.csv
 │   ├── Bollywood_movies.csv
 │   ├── general_election_1970to2024.csv
-│   └── kentucky_real_estate.csv
+│   ├── kentucky_real_estate.csv
+│   ├── smartwatches.csv
+│   ├── Fitness_trackers.csv
+│   └── Fitness_trackers_updated.csv
 ├── Project1 Books Sales/
 │   ├── Books.ipynb
 │   └── README.md
@@ -141,6 +145,11 @@ Each project folder contains a **README.md** with problem statement, dataset det
 ├── Project 15 Kentucky Eeal Estate and analysis/
 │   ├── kentucky_real_estate.ipynb
 │   └── README.md
+├── Project16 Fitness tracker Ecom Products/
+│   ├── Fitness_tracker_ecommerce.ipynb
+│   ├── docs/
+│   │   └── doc.txt
+│   └── README.md
 └── README.md
 ```
 
@@ -155,6 +164,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
 - **Scikit-learn** — for Projects 9–12 and **15** (linear/logistic regression, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
 ---
 
@@ -183,6 +193,12 @@ Each project folder contains a **README.md** with problem statement, dataset det
    pip install pandas numpy matplotlib seaborn scikit-learn jupyter
    ```
 
+   For **Project 16** (fitness tracker e-commerce EDA), also install:
+
+   ```bash
+   pip install ydata-profiling
+   ```
+
 4. **Launch Jupyter**:
 
    ```bash
@@ -205,6 +221,8 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Bollywood_movies.csv** — Bollywood film metadata, budget, revenue, genre, and release attributes for EDA.
 - **general_election_1970to2024.csv** — General election records (1970–2024): NA constituencies, parties, candidates, votes, provinces, and regional fields.
 - **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; **Project 15** uses it for EDA, feature engineering, and **linear regression** on list price.
+- **smartwatches.csv** — Smartwatch / wearable e-commerce product attributes; **Project 16** loads this file in `Fitness_tracker_ecommerce.ipynb`.
+- **Fitness_trackers.csv** / **Fitness_trackers_updated.csv** — Additional fitness-tracker product data in `datasets/` (use if you extend the notebook or swap the data source).
 
 *Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. Project 12 (Titanic Survival) loads Titanic via Seaborn (`sns.load_dataset('titanic')`); no CSV required.*
 
