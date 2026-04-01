@@ -1,0 +1,27 @@
+Problem identification
+Business Understanding
+Collecting Data
+Pre-Processing Data
+Analyzing Data
+Data Modelling
+Model Evaluation/ Monitoring
+Model Training
+Model Deployment
+
+
+
+/// steps from Data
+
+remove unname columns
+
+
+// plots
+
+1- univariate plots
+- Histogram
+- Density plots
+- Box and whisker plots
+
+2- multi variate plots
+- Heat map
+- Scatter plot

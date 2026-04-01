@@ -1,28 +1,27 @@
-# Project 16 — Fitness Tracker E-commerce EDA
+# Project 16 — Fitness Tracker E-commerce EDA & Modeling
 
 ## Problem Statement
 
-Explore smartwatch and fitness-tracker style **e-commerce product** data to understand price, features, brands, and relationships between variables. The workflow follows business/DS steps: problem framing, data collection, preprocessing, analysis, and visualization (see `docs/doc.txt`).
+Explore smartwatch and fitness-tracker style **e-commerce product** data to understand price, features, brands, and relationships between variables. The workflow follows business/DS steps from `docs/doc.txt` (framing, collection, preprocessing, analysis, visualization, then modeling).
 
-## Dataset
+## Notebooks & data flow
 
-- **Primary (notebook):** `../datasets/smartwatches.csv`
-- **Also in repo:** `Fitness_trackers.csv`, `Fitness_trackers_updated.csv` in `datasets/` for extensions or alternate analyses.
+1. **`Fitness_tracker_ecommerce.ipynb`** — EDA on `../datasets/smartwatches.csv`: drop index column **`Unnamed: 0`**, **ydata-profiling** on a train split, univariate plots (**Seaborn** `histplot` with KDE, **boxplot**), multivariate **pairplot**, correlation **heatmap**, then feature prep with **`pd.get_dummies`** on **`Brand`** and **`Dial Shape`**. Writes **`final_watch_data.csv`** in this project folder (regenerate by running the notebook if you change upstream data).
 
-## Analysis Performed
+2. **`Model_creation.ipynb`** — Loads **`final_watch_data.csv`**, predicts **`Discount Price`** from the remaining numeric and one-hot columns. **Train/test split** (33% test, `random_state=42`). Models: **linear regression**, **decision tree**, **random forest**; **R²** on held-out test (and **5-fold `cross_val_score`** with `scoring='r2'`). Requires `scikit-learn`.
 
-- Load data with Pandas; remove stray **Unnamed** columns where applicable.
-- **ydata-profiling** for an automated profile report (install via `pip install ydata-profiling`).
-- **Univariate:** histograms, density-style plots, box-and-whisker plots.
-- **Multivariate:** correlation heatmaps, scatter plots.
-- Optional next steps from `docs/doc.txt`: modeling, evaluation, deployment.
+## Datasets
 
-## Key Insights (Summary)
+- **Source CSV:** `../datasets/smartwatches.csv`
+- **Modeling table:** `final_watch_data.csv` (produced by the EDA notebook; committed for convenience)
+- **Alternates in repo:** `../datasets/Fitness_trackers.csv`, `../datasets/Fitness_trackers_updated.csv` for extensions or swapping sources
 
-- Product and price distributions across brands or categories.
-- Correlations between numeric features (e.g. price vs. specs).
-- Data quality issues surfaced by profiling and manual checks.
+## Key insights (summary)
 
-## Tech Stack
+- Distributions of price, ratings, and specs; brand and dial-shape patterns after encoding.
+- Correlations among numeric features (heatmap / pairplot).
+- **Discount Price** is predictable from engineered features; compare linear, tree, and ensemble test **R²** in the modeling notebook.
 
-Python, Pandas, NumPy, Matplotlib, Seaborn, ydata-profiling, Jupyter Notebook
+## Tech stack
+
+Python, Pandas, NumPy, Matplotlib, Seaborn, ydata-profiling, scikit-learn, Jupyter Notebook

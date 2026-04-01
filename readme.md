@@ -20,7 +20,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12** and **15**) add regression or classification models, train/test evaluation, and metrics (e.g. R²). Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**, and **16**) add regression or classification models, train/test evaluation, and metrics (e.g. R²). Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -76,9 +76,9 @@ Choose the right visualization based on your data types:
 | **Project 13 — Bollywood Movies EDA** | EDA on Bollywood movies: genre, release period, budget, revenue, screens, remakes, and franchises. | `Bollywood_movies.csv` |
 | **Project 14 — General Election 1970–2024** | EDA on NA constituency–level election data: parties, votes, turnout, provinces, and trends over time. | `general_election_1970to2024.csv` |
 | **Project 15 — Kentucky Real Estate** | Full pipeline: EDA, cleaning, feature engineering (price tiers, one-hot encoding, `house_age`), scaling, then **linear regression** to predict **list price** (`listPrice`); train/test split and **R²** evaluation. | `kentucky_real_estate.csv` |
-| **Project 16 — Fitness Tracker E-commerce** | EDA on wearable / smartwatch product data: preprocessing, **ydata-profiling** reports, univariate plots (histogram, density, box), multivariate (heatmap, scatter). | `smartwatches.csv` |
+| **Project 16 — Fitness Tracker E-commerce** | **EDA:** `smartwatches.csv`, drop index column, **ydata-profiling**, histograms (KDE), boxplots, pairplot, correlation heatmap; one-hot **Brand** / **Dial Shape** → **`final_watch_data.csv`**. **ML:** linear regression, decision tree, and random forest to predict **Discount Price**; R² and 5-fold CV (`Model_creation.ipynb`). | `smartwatches.csv` → `Project16 Fitness tracker Ecom Products/final_watch_data.csv` |
 
-Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15** include trained models and evaluation).
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12, 15, and 16** include trained models and evaluation).
 
 ---
 
@@ -147,10 +147,12 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   └── README.md
 ├── Project16 Fitness tracker Ecom Products/
 │   ├── Fitness_tracker_ecommerce.ipynb
+│   ├── Model_creation.ipynb
+│   ├── final_watch_data.csv
 │   ├── docs/
 │   │   └── doc.txt
 │   └── README.md
-└── README.md
+└── readme.md
 ```
 
 ---
@@ -163,7 +165,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 and **15** (linear/logistic regression, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Scikit-learn** — for Projects 9–12, **15**, and **16** (linear/logistic regression, tree/ensemble models, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
 - **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
 ---
@@ -221,7 +223,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Bollywood_movies.csv** — Bollywood film metadata, budget, revenue, genre, and release attributes for EDA.
 - **general_election_1970to2024.csv** — General election records (1970–2024): NA constituencies, parties, candidates, votes, provinces, and regional fields.
 - **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; **Project 15** uses it for EDA, feature engineering, and **linear regression** on list price.
-- **smartwatches.csv** — Smartwatch / wearable e-commerce product attributes; **Project 16** loads this file in `Fitness_tracker_ecommerce.ipynb`.
+- **smartwatches.csv** — Smartwatch / wearable e-commerce product attributes; **Project 16** loads this in `Fitness_tracker_ecommerce.ipynb` and exports **`Project16 Fitness tracker Ecom Products/final_watch_data.csv`** (one-hot encoded features) for **`Model_creation.ipynb`**.
 - **Fitness_trackers.csv** / **Fitness_trackers_updated.csv** — Additional fitness-tracker product data in `datasets/` (use if you extend the notebook or swap the data source).
 
 *Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. Project 12 (Titanic Survival) loads Titanic via Seaborn (`sns.load_dataset('titanic')`); no CSV required.*
@@ -233,6 +235,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - Run notebook cells top to bottom for full analysis.
 - Adjust file paths if you move the repository or datasets.
 - Use the same Python environment for consistent package versions.
+- **Project 16:** Run `Fitness_tracker_ecommerce.ipynb` first if you need to regenerate `final_watch_data.csv`; then open `Model_creation.ipynb` (expects that CSV in the same folder).
 
 ---
 
