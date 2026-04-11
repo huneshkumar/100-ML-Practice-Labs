@@ -1,6 +1,6 @@
 # EDA Projects
 
-A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression and classification) across **19** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
+A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression and classification) across **20** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
 
 ---
 
@@ -20,7 +20,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**19**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** focuses on **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV`). **Project 19** is a classic **sonar** binary classification task (rock vs metal). Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** focuses on **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV`). **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -80,8 +80,9 @@ Choose the right visualization based on your data types:
 | **Project 17 — Titanic: multi-classifier comparison** | **Classification:** Seaborn **Titanic**; clean/drop columns, encode features, train/test split; compare **logistic regression**, **k-NN** (`n_neighbors=5`, scaled features), **Gaussian naive Bayes**, **decision tree** (`max_depth=5`), and **SVC** (`C=1`); **accuracy**, confusion matrix, classification report (`multi-models.ipynb`). | Seaborn `sns.load_dataset('titanic')` |
 | **Project 18 — Hyperparameter tuning** | **Iris** (Seaborn): multiclass classification with **k-NN** and **SVC** baselines, then **`GridSearchCV`** (5-fold CV) over SVM and k-NN hyperparameters, plus **`RandomizedSearchCV`** for SVM (`GridSearchCV.ipynb`). | Seaborn `sns.load_dataset('iris')` |
 | **Project 19 — Sonar: mine vs rock classification** | **Binary classification:** 60 sonar frequency-energy features plus label **R** (rock) vs **M** (metal); EDA, train/test split, **logistic regression**, train and test **accuracy**, and a worked **prediction** example (`Sonar_mine_prediction.ipynb`). | `sonar_data.csv` |
+| **Project 20 — ML: Diabetes prediction** | **Binary classification (Pima-style):** load **`diabetes.csv`**, EDA (`Outcome` balance, group means), **`StandardScaler`** on features, train/test split, **`GridSearchCV`** over **SVC** (`C`, `kernel`), train/test **accuracy**, sample inference, **`joblib`** export of fitted model and scaler to **`models/`** (`Diabetese_prediction.ipynb`). | `diabetes.csv` |
 
-Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–19** include trained models, tuning, or evaluation).
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–20** include trained models, tuning, or evaluation).
 
 ---
 
@@ -93,6 +94,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   ├── Books_Data_Clean.csv
 │   ├── shopping_trends.csv
 │   ├── insurance.csv
+│   ├── diabetes.csv
 │   ├── heart.csv
 │   ├── titanic.csv
 │   ├── airline_ticket_prices_dataset.csv
@@ -165,6 +167,9 @@ Each project folder contains a **README.md** with problem statement, dataset det
 ├── Project19 land mines predictions/
 │   ├── Sonar_mine_prediction.ipynb
 │   └── README.md
+├── Project20 ML Diabetes Predictions/
+│   ├── Diabetese_prediction.ipynb
+│   └── README.md
 └── readme.md
 ```
 
@@ -178,7 +183,8 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 and **15**–**19** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Scikit-learn** — for Projects 9–12 and **15**–**20** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Joblib** — used in **Project 20** to persist the tuned model and scaler (run the notebook to create the `models/` files)
 - **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
 ---
@@ -229,6 +235,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Books_Data_Clean.csv** — Book metadata, ratings, sales, and publisher information.
 - **shopping_trends.csv** — Customer shopping and trend data for behaviour analysis.
 - **insurance.csv** — Medical insurance cost data for cost and premium analysis.
+- **diabetes.csv** — Pima Indians Diabetes–style records (768 rows): glucose, blood pressure, BMI, age, pedigree, etc., and binary **`Outcome`**; **Project 20** loads `../datasets/diabetes.csv` in `Diabetese_prediction.ipynb`.
 - **heart.csv** — Heart disease and cardiovascular health indicators for analysis.
 - **titanic.csv** — Titanic passenger and survival data for demographic and outcome analysis.
 - **airline_ticket_prices_dataset.csv** — Airline ticket pricing data for price and factor analysis.
@@ -250,6 +257,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - Adjust file paths if you move the repository or datasets.
 - Use the same Python environment for consistent package versions.
 - **Project 16:** Run `Fitness_tracker_ecommerce.ipynb` first if you need to regenerate `final_watch_data.csv`; then open `Model_creation.ipynb` (expects that CSV in the same folder).
+- **Project 20:** Ensure `datasets/diabetes.csv` exists; after running `Diabetese_prediction.ipynb`, model artifacts are written under **`Project20 ML Diabetes Predictions/models/`** (create the folder if the notebook expects it and errors).
 
 ---
 
