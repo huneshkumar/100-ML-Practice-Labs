@@ -1,6 +1,6 @@
 # EDA Projects
 
-A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression and classification) across **18** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
+A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression and classification) across **19** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
 
 ---
 
@@ -20,7 +20,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**18**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** focuses on **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV`) rather than a new domain dataset. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**19**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** focuses on **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV`). **Project 19** is a classic **sonar** binary classification task (rock vs metal). Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -79,8 +79,9 @@ Choose the right visualization based on your data types:
 | **Project 16 — Fitness Tracker E-commerce** | **EDA:** `smartwatches.csv`, drop index column, **ydata-profiling**, histograms (KDE), boxplots, pairplot, correlation heatmap; one-hot **Brand** / **Dial Shape** → **`final_watch_data.csv`**. **ML:** linear regression, decision tree, and random forest to predict **Discount Price**; R² and 5-fold CV (`Model_creation.ipynb`). | `smartwatches.csv` → `Project16 Fitness tracker Ecom Products/final_watch_data.csv` |
 | **Project 17 — Titanic: multi-classifier comparison** | **Classification:** Seaborn **Titanic**; clean/drop columns, encode features, train/test split; compare **logistic regression**, **k-NN** (`n_neighbors=5`, scaled features), **Gaussian naive Bayes**, **decision tree** (`max_depth=5`), and **SVC** (`C=1`); **accuracy**, confusion matrix, classification report (`multi-models.ipynb`). | Seaborn `sns.load_dataset('titanic')` |
 | **Project 18 — Hyperparameter tuning** | **Iris** (Seaborn): multiclass classification with **k-NN** and **SVC** baselines, then **`GridSearchCV`** (5-fold CV) over SVM and k-NN hyperparameters, plus **`RandomizedSearchCV`** for SVM (`GridSearchCV.ipynb`). | Seaborn `sns.load_dataset('iris')` |
+| **Project 19 — Sonar: mine vs rock classification** | **Binary classification:** 60 sonar frequency-energy features plus label **R** (rock) vs **M** (metal); EDA, train/test split, **logistic regression**, train and test **accuracy**, and a worked **prediction** example (`Sonar_mine_prediction.ipynb`). | `sonar_data.csv` |
 
-Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–18** include trained models, tuning, or evaluation).
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–19** include trained models, tuning, or evaluation).
 
 ---
 
@@ -100,6 +101,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   ├── general_election_1970to2024.csv
 │   ├── kentucky_real_estate.csv
 │   ├── smartwatches.csv
+│   ├── sonar_data.csv
 │   ├── Fitness_trackers.csv
 │   └── Fitness_trackers_updated.csv
 ├── Project1 Books Sales/
@@ -160,6 +162,9 @@ Each project folder contains a **README.md** with problem statement, dataset det
 ├── Project18 Hyper-parameter tunning/
 │   ├── GridSearchCV.ipynb
 │   └── README.md
+├── Project19 land mines predictions/
+│   ├── Sonar_mine_prediction.ipynb
+│   └── README.md
 └── readme.md
 ```
 
@@ -173,7 +178,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 and **15**–**18** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Scikit-learn** — for Projects 9–12 and **15**–**19** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
 - **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
 ---
@@ -232,6 +237,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **general_election_1970to2024.csv** — General election records (1970–2024): NA constituencies, parties, candidates, votes, provinces, and regional fields.
 - **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; **Project 15** uses it for EDA, feature engineering, and **linear regression** on list price.
 - **smartwatches.csv** — Smartwatch / wearable e-commerce product attributes; **Project 16** loads this in `Fitness_tracker_ecommerce.ipynb` and exports **`Project16 Fitness tracker Ecom Products/final_watch_data.csv`** (one-hot encoded features) for **`Model_creation.ipynb`**.
+- **sonar_data.csv** — Classic **sonar** dataset (~208 rows): **60** numeric attributes (return strengths) and a label column **R** / **M** (rock vs metal); **Project 19** loads it from `../datasets/sonar_data.csv` in `Sonar_mine_prediction.ipynb`.
 - **Fitness_trackers.csv** / **Fitness_trackers_updated.csv** — Additional fitness-tracker product data in `datasets/` (use if you extend the notebook or swap the data source).
 
 *Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. **Projects 12 and 17** load Titanic via Seaborn (`sns.load_dataset('titanic')`); **Project 18** loads Iris via Seaborn (`sns.load_dataset('iris')`); no CSV in `datasets/` is required for those notebooks.*
