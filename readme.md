@@ -7,6 +7,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 ## Contents
 
 - [Overview](#overview)
+- [Data Science and ML Roadmap](#data-science-and-ml-roadmap)
 - [EDA Checklist](#eda-checklist)
 - [Chart Selection Guide](#chart-selection-guide)
 - [Projects](#projects)
@@ -21,6 +22,29 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 ## Overview
 
 This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **stacking ensembles** (`StackingClassifier` with tree, SVM, and logistic base learners). **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+
+---
+
+## Data Science and ML Roadmap
+
+End-to-end flow from framing a question to operating a model in the real world. Use it as a study order or checklist when building projects (many steps map to notebooks in this repo).
+
+| Step | Phase | What to do |
+|:----:|--------|------------|
+| **1** | **Problem & success criteria** | Clarify the business or research question, define **success metrics** (e.g. RMSE, accuracy, precision/recall), constraints (latency, fairness, budget), and what “good enough” means. |
+| **2** | **Data collection** | Gather data from files, databases, APIs, surveys, or sensors; document **provenance**, **licenses**, and **sampling**; version raw snapshots when possible. |
+| **3** | **Exploratory Data Analysis (EDA)** | Inspect schema, **dtypes**, **shape**, **missing values**, duplicates, and **distributions**; visualize relationships; form hypotheses (see [EDA Checklist](#eda-checklist)). |
+| **4** | **Cleaning & preprocessing** | Handle missingness and outliers; fix types; parse dates/categories; **normalize/standardize** when algorithms require it; avoid **data leakage** from future information. |
+| **5** | **Feature engineering & selection** | Create ratios, bins, interactions; **encode** categoricals; drop or combine redundant columns; optional **feature selection** or dimensionality reduction. |
+| **6** | **Experimental design** | Choose **train / validation / test** splits (or **cross-validation**); use **stratification** for imbalanced classification; set a **random seed** for reproducibility. |
+| **7** | **Baseline model** | Train a **simple, interpretable** model first (e.g. linear or logistic regression) to establish a **reference score** and sanity-check the pipeline. |
+| **8** | **Modeling & comparison** | Try stronger algorithms (trees, ensembles, SVMs, neural nets where appropriate); compare metrics on the **same validation protocol**. |
+| **9** | **Hyperparameter tuning** | Improve models with **`GridSearchCV`**, **`RandomizedSearchCV`**, or other search methods; keep a **held-out test** set untouched until final reporting. |
+| **10** | **Evaluation & error analysis** | Report **test** performance; study **residuals**, **confusion matrices**, calibration, and failure cases; check stability across folds or slices of data. |
+| **11** | **Interpretability & storytelling** | Summarize **drivers** of predictions (coefficients, feature importance, partial dependence); turn results into **clear visuals and recommendations** for stakeholders. |
+| **12** | **Deployment, monitoring, & iteration** | Package the model (**pickle** / **joblib** / MLflow, etc.), expose **batch or API** scoring, log predictions, watch for **data drift**, and plan **retraining** when performance drops. |
+
+**Note:** Steps **1–6** are mostly data work; **7–10** are core ML; **11–12** connect ML to decisions and production. You can loop back to **3–9** whenever new data arrives or the problem definition changes.
 
 ---
 
