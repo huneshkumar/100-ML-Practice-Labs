@@ -16,12 +16,13 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 - [Getting Started](#getting-started)
 - [Datasets](#datasets)
 - [Usage](#usage)
+- [License](#license)
 
 ---
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **stacking ensembles** (`StackingClassifier` with tree, SVM, and logistic base learners). **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **`EnsembleLearning.ipynb`**: Iris **EDA** (plots by species), a **`StackingClassifier`** (tree + SVM + logistic bases, logistic meta-learner), plus a **random forest** block (`n_estimators=100`, `random_state=42`) used as a **bagging-style** ensemble comparison with test **accuracy**. **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Use the **[Data Science and ML Roadmap](#data-science-and-ml-roadmap)** as a step-by-step study guide from problem framing through deployment. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -102,7 +103,7 @@ Choose the right visualization based on your data types:
 | **Project 15 — Kentucky Real Estate** | Full pipeline: EDA, cleaning, feature engineering (price tiers, one-hot encoding, `house_age`), scaling, then **linear regression** to predict **list price** (`listPrice`); train/test split and **R²** evaluation. | `kentucky_real_estate.csv` |
 | **Project 16 — Fitness Tracker E-commerce** | **EDA:** `smartwatches.csv`, drop index column, **ydata-profiling**, histograms (KDE), boxplots, pairplot, correlation heatmap; one-hot **Brand** / **Dial Shape** → **`final_watch_data.csv`**. **ML:** linear regression, decision tree, and random forest to predict **Discount Price**; R² and 5-fold CV (`Model_creation.ipynb`). | `smartwatches.csv` → `Project16 Fitness tracker Ecom Products/final_watch_data.csv` |
 | **Project 17 — Titanic: multi-classifier comparison** | **Classification:** Seaborn **Titanic**; clean/drop columns, encode features, train/test split; compare **logistic regression**, **k-NN** (`n_neighbors=5`, scaled features), **Gaussian naive Bayes**, **decision tree** (`max_depth=5`), and **SVC** (`C=1`); **accuracy**, confusion matrix, classification report (`multi-models.ipynb`). | Seaborn `sns.load_dataset('titanic')` |
-| **Project 18 — Hyperparameter tuning & ensembles** | **Iris** (Seaborn): **`GridSearchCV.ipynb`** — **k-NN** and **SVC** baselines, **`GridSearchCV`** (5-fold CV) on SVM and k-NN, **`RandomizedSearchCV`** on SVM. **`EnsembleLearning.ipynb`** — label-encoded species, stratified split, **`StackingClassifier`** (base: **decision tree**, **SVC** `probability=True`, **logistic regression**; meta: **logistic regression**, `cv=5`) and **test accuracy**. | Seaborn `sns.load_dataset('iris')` |
+| **Project 18 — Hyperparameter tuning & ensembles** | **Iris** (Seaborn): **`GridSearchCV.ipynb`** — **k-NN** and **SVC** baselines, **`GridSearchCV`** (5-fold CV) on SVM and k-NN, **`RandomizedSearchCV`** on SVM. **`EnsembleLearning.ipynb`** — load Iris, **EDA** (feature plots by **species**), **`LabelEncoder`** on target, **stratified** train/test split; **`StackingClassifier`** (bases: **decision tree**, **SVC** `probability=True`, **logistic regression**; meta: **logistic regression**, `cv=5`) with **test accuracy**; then **`RandomForestClassifier`** (`n_estimators=100`, `max_depth=None`, `random_state=42`) as a **bagging-style** forest ensemble with **test accuracy** for comparison. | Seaborn `sns.load_dataset('iris')` |
 | **Project 19 — Sonar: mine vs rock classification** | **Binary classification:** 60 sonar frequency-energy features plus label **R** (rock) vs **M** (metal); EDA, train/test split, **logistic regression**, train and test **accuracy**, and a worked **prediction** example (`Sonar_mine_prediction.ipynb`). | `sonar_data.csv` |
 | **Project 20 — ML: Diabetes prediction** | **Binary classification (Pima-style):** load **`diabetes.csv`**, EDA (`Outcome` balance, group means), **`StandardScaler`** on features, train/test split, **`GridSearchCV`** over **SVC** (`C`, `kernel`), train/test **accuracy**, sample inference, **`joblib`** export of fitted model and scaler to **`models/`** (`Diabetese_prediction.ipynb`). | `diabetes.csv` |
 
@@ -172,7 +173,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 ├── Project14 General Election 1970 to 2024/
 │   ├── Election_1970_to_2024.ipynb
 │   └── README.md
-├── Project 15 Kentucky Eeal Estate and analysis/
+├── Project15 Kentucky Eeal Estate and analysis/
 │   ├── kentucky_real_estate.ipynb
 │   └── README.md
 ├── Project16 Fitness tracker Ecom Products/
@@ -208,7 +209,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 and **15**–**20** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`StackingClassifier`**, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Scikit-learn** — for Projects 9–12 and **15**–**20** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`StackingClassifier`**, **`RandomForestClassifier`**, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
 - **Joblib** — used in **Project 20** to persist the tuned model and scaler (run the notebook to create the `models/` files)
 - **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
@@ -253,6 +254,8 @@ Each project folder contains a **README.md** with problem statement, dataset det
 
 5. Open any `.ipynb` file from the project folders. For CSV-based projects, ensure paths point to the `datasets/` folder when loading data (e.g. `../datasets/filename.csv` from a project folder).
 
+**Folder naming:** Kentucky real estate lives under **`Project15 Kentucky Eeal Estate and analysis/`** (no space after `Project15`). If your local clone used a different spelling, match the folder name on disk when opening notebooks.
+
 ---
 
 ## Datasets
@@ -281,6 +284,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - Run notebook cells top to bottom for full analysis.
 - Adjust file paths if you move the repository or datasets.
 - Use the same Python environment for consistent package versions.
+- **Project 3:** The Netflix notebook filename on disk may start with a **leading space** (` NetflixAnalysis.ipynb`). If it does not appear in Jupyter or your file tree, rename it to `NetflixAnalysis.ipynb` (no leading space).
 - **Project 16:** Run `Fitness_tracker_ecommerce.ipynb` first if you need to regenerate `final_watch_data.csv`; then open `Model_creation.ipynb` (expects that CSV in the same folder).
 - **Project 20:** Ensure `datasets/diabetes.csv` exists; after running `Diabetese_prediction.ipynb`, model artifacts are written under **`Project20 ML Diabetes Predictions/models/`** (create the folder if the notebook expects it and errors).
 
