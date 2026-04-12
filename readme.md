@@ -20,7 +20,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** focuses on **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV`). **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **stacking ensembles** (`StackingClassifier` with tree, SVM, and logistic base learners). **Project 19** is a classic **sonar** binary classification task (rock vs metal). **Project 20** predicts **diabetes onset** (**Outcome**) from clinical features using **scaled** inputs and **SVM** with **`GridSearchCV`**. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -78,7 +78,7 @@ Choose the right visualization based on your data types:
 | **Project 15 — Kentucky Real Estate** | Full pipeline: EDA, cleaning, feature engineering (price tiers, one-hot encoding, `house_age`), scaling, then **linear regression** to predict **list price** (`listPrice`); train/test split and **R²** evaluation. | `kentucky_real_estate.csv` |
 | **Project 16 — Fitness Tracker E-commerce** | **EDA:** `smartwatches.csv`, drop index column, **ydata-profiling**, histograms (KDE), boxplots, pairplot, correlation heatmap; one-hot **Brand** / **Dial Shape** → **`final_watch_data.csv`**. **ML:** linear regression, decision tree, and random forest to predict **Discount Price**; R² and 5-fold CV (`Model_creation.ipynb`). | `smartwatches.csv` → `Project16 Fitness tracker Ecom Products/final_watch_data.csv` |
 | **Project 17 — Titanic: multi-classifier comparison** | **Classification:** Seaborn **Titanic**; clean/drop columns, encode features, train/test split; compare **logistic regression**, **k-NN** (`n_neighbors=5`, scaled features), **Gaussian naive Bayes**, **decision tree** (`max_depth=5`), and **SVC** (`C=1`); **accuracy**, confusion matrix, classification report (`multi-models.ipynb`). | Seaborn `sns.load_dataset('titanic')` |
-| **Project 18 — Hyperparameter tuning** | **Iris** (Seaborn): multiclass classification with **k-NN** and **SVC** baselines, then **`GridSearchCV`** (5-fold CV) over SVM and k-NN hyperparameters, plus **`RandomizedSearchCV`** for SVM (`GridSearchCV.ipynb`). | Seaborn `sns.load_dataset('iris')` |
+| **Project 18 — Hyperparameter tuning & ensembles** | **Iris** (Seaborn): **`GridSearchCV.ipynb`** — **k-NN** and **SVC** baselines, **`GridSearchCV`** (5-fold CV) on SVM and k-NN, **`RandomizedSearchCV`** on SVM. **`EnsembleLearning.ipynb`** — label-encoded species, stratified split, **`StackingClassifier`** (base: **decision tree**, **SVC** `probability=True`, **logistic regression**; meta: **logistic regression**, `cv=5`) and **test accuracy**. | Seaborn `sns.load_dataset('iris')` |
 | **Project 19 — Sonar: mine vs rock classification** | **Binary classification:** 60 sonar frequency-energy features plus label **R** (rock) vs **M** (metal); EDA, train/test split, **logistic regression**, train and test **accuracy**, and a worked **prediction** example (`Sonar_mine_prediction.ipynb`). | `sonar_data.csv` |
 | **Project 20 — ML: Diabetes prediction** | **Binary classification (Pima-style):** load **`diabetes.csv`**, EDA (`Outcome` balance, group means), **`StandardScaler`** on features, train/test split, **`GridSearchCV`** over **SVC** (`C`, `kernel`), train/test **accuracy**, sample inference, **`joblib`** export of fitted model and scaler to **`models/`** (`Diabetese_prediction.ipynb`). | `diabetes.csv` |
 
@@ -163,6 +163,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   └── README.md
 ├── Project18 Hyper-parameter tunning/
 │   ├── GridSearchCV.ipynb
+│   ├── EnsembleLearning.ipynb
 │   └── README.md
 ├── Project19 land mines predictions/
 │   ├── Sonar_mine_prediction.ipynb
@@ -183,7 +184,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Matplotlib** — static visualizations
 - **Seaborn** — statistical visualizations
 - **Jupyter Notebook** — interactive analysis
-- **Scikit-learn** — for Projects 9–12 and **15**–**20** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
+- **Scikit-learn** — for Projects 9–12 and **15**–**20** (linear/logistic regression, k-NN, naive Bayes, SVM, tree/ensemble models, **`StackingClassifier`**, **`GridSearchCV`** / **`RandomizedSearchCV`**, train/test split, scaling, metrics, OpenML where used, classification/regression evaluation)
 - **Joblib** — used in **Project 20** to persist the tuned model and scaler (run the notebook to create the `models/` files)
 - **ydata-profiling** — optional for **Project 16** (automated EDA HTML reports)
 
@@ -247,7 +248,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **sonar_data.csv** — Classic **sonar** dataset (~208 rows): **60** numeric attributes (return strengths) and a label column **R** / **M** (rock vs metal); **Project 19** loads it from `../datasets/sonar_data.csv` in `Sonar_mine_prediction.ipynb`.
 - **Fitness_trackers.csv** / **Fitness_trackers_updated.csv** — Additional fitness-tracker product data in `datasets/` (use if you extend the notebook or swap the data source).
 
-*Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. **Projects 12 and 17** load Titanic via Seaborn (`sns.load_dataset('titanic')`); **Project 18** loads Iris via Seaborn (`sns.load_dataset('iris')`); no CSV in `datasets/` is required for those notebooks.*
+*Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. **Projects 12 and 17** load Titanic via Seaborn (`sns.load_dataset('titanic')`); **Project 18** (`GridSearchCV.ipynb` and `EnsembleLearning.ipynb`) loads Iris via Seaborn (`sns.load_dataset('iris')`); no CSV in `datasets/` is required for those notebooks.*
 
 ---
 
