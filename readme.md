@@ -1,6 +1,6 @@
 # EDA Projects
 
-A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression, classification, clustering, and time-series style EDA) across **22** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
+A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)** projects (regression, classification, clustering, and time-series style EDA) across **23** themed folders, demonstrating data cleaning, visualization, insight extraction, and prediction using Python, Pandas, and visualization libraries.
 
 ---
 
@@ -22,7 +22,7 @@ A collection of **Exploratory Data Analysis (EDA)** and **Machine Learning (ML)*
 
 ## Overview
 
-This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. Supervised ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **`EnsembleLearning.ipynb`** (stacking, random forest, AdaBoost, gradient boosting, **XGBoost**). **Project 19** is **sonar** rock vs metal classification; **Project 20** is **diabetes** prediction with **SVM** + **`GridSearchCV`**. **Project 21** is **unsupervised learning**: **`make_blobs`**, **`StandardScaler`**, **elbow** / **KMeans**, and **DBSCAN**. **Project 22** is **silver price** exploratory work on a **project-local** forecast CSV (plots, rolling stats). Use the **[Data Science and ML Roadmap](#data-science-and-ml-roadmap)** as a step-by-step study guide from problem framing through deployment. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
+This repository contains hands-on EDA and ML projects built with Jupyter notebooks. EDA projects focus on real-world datasets with data loading, quality checks, visualization, and insights. Supervised ML projects (**9–12**, **15**–**20**) add regression or classification models, train/test evaluation, and metrics (e.g. R², accuracy). **Project 18** covers **hyperparameter search** (`GridSearchCV`, `RandomizedSearchCV` on Iris) and **`EnsembleLearning.ipynb`** (stacking, random forest, AdaBoost, gradient boosting, **XGBoost**). **Project 19** is **sonar** rock vs metal classification; **Project 20** is **diabetes** prediction with **SVM** + **`GridSearchCV`**. **Project 21** is **unsupervised learning**: **`make_blobs`**, **`StandardScaler`**, **elbow** / **KMeans**, and **DBSCAN**. **Project 22** is **silver price** exploratory work on a **project-local** forecast CSV (plots, rolling stats). **Project 23** is **supply-chain EDA** on a large transactional CSV: load with **`latin-1`** encoding, parse order/shipping dates, drop redundant columns, summarize with **`describe`**, and visualize relationships (e.g. **Seaborn** with a **viridis** palette). Use the **[Data Science and ML Roadmap](#data-science-and-ml-roadmap)** as a step-by-step study guide from problem framing through deployment. Each project folder has its own **README.md** with problem statement, dataset description, analysis steps, and key insights.
 
 ---
 
@@ -108,8 +108,9 @@ Choose the right visualization based on your data types:
 | **Project 20 — ML: Diabetes prediction** | **Binary classification (Pima-style):** load **`diabetes.csv`**, EDA (`Outcome` balance, group means), **`StandardScaler`** on features, train/test split, **`GridSearchCV`** over **SVC** (`C`, `kernel`), train/test **accuracy**, sample inference, **`joblib`** export of fitted model and scaler to **`models/`** (`Diabetese_prediction.ipynb`). | `diabetes.csv` |
 | **Project 21 — Unsupervised learning (clustering)** | **`make_blobs`** synthetic 2D data; **`StandardScaler`**; **elbow** curve over **K**; **`KMeans`** (e.g. `n_clusters=3`); alternate **KMeans** / **`DBSCAN`** (`eps`, `min_samples`) with **Seaborn** scatterplots by cluster (`Clustring.ipynb`). | `sklearn.datasets.make_blobs` (synthetic) |
 | **Project 22 — Silver price prediction (EDA)** | Load **`silver_price_forecast_2026.csv`** from the project **`dataset/`** folder; **EDA** and visuals on **Date**, **Predicted_Price**, bounds, **day_of_week**, **volatility**, rolling means (`notebooks/silver-price-forcast-EDA.ipynb`). | `Project22 Silver Price Prediction/dataset/silver_price_forecast_2026.csv` |
+| **Project 23 — Supply chain EDA** | **EDA** on global supply-chain orders: **`pd.read_csv(..., encoding='latin-1')`**, **`pd.to_datetime`** with **`errors='coerce'`**, drop unused columns, profiling and plots (`supplychain_eda.ipynb`). | `supply_chain_data.csv` |
 
-Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–22** include modeling, tuning, evaluation, clustering, or EDA pipelines as listed above).
+Each project folder contains a **README.md** with problem statement, dataset details, analysis steps, and key insights (**Projects 9–12 and 15–22** include modeling, tuning, evaluation, clustering, or EDA-style pipelines as listed above; **Project 23** is **EDA-only** on supply-chain transactions).
 
 ---
 
@@ -131,6 +132,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   ├── kentucky_real_estate.csv
 │   ├── smartwatches.csv
 │   ├── sonar_data.csv
+│   ├── supply_chain_data.csv
 │   ├── Fitness_trackers.csv
 │   └── Fitness_trackers_updated.csv
 ├── Project1 Books Sales/
@@ -207,6 +209,9 @@ Each project folder contains a **README.md** with problem statement, dataset det
 │   │   └── after-eda.csv
 │   ├── notebooks/
 │   │   └── silver-price-forcast-EDA.ipynb
+│   └── README.md
+├── Project23 supplychain/
+│   ├── supplychain_eda.ipynb
 │   └── README.md
 └── readme.md
 ```
@@ -292,10 +297,11 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **kentucky_real_estate.csv** — Kentucky real estate listings (~8.5k rows): list price, sqft, beds, baths, property type, garage, year built, listing text; **Project 15** uses it for EDA, feature engineering, and **linear regression** on list price.
 - **smartwatches.csv** — Smartwatch / wearable e-commerce product attributes; **Project 16** loads this in `Fitness_tracker_ecommerce.ipynb` and exports **`Project16 Fitness tracker Ecom Products/final_watch_data.csv`** (one-hot encoded features) for **`Model_creation.ipynb`**.
 - **sonar_data.csv** — Classic **sonar** dataset (~208 rows): **60** numeric attributes (return strengths) and a label column **R** / **M** (rock vs metal); **Project 19** loads it from `../datasets/sonar_data.csv` in `Sonar_mine_prediction.ipynb`.
+- **supply_chain_data.csv** — Wide supply-chain / e-commerce order table (~180k+ rows): payment type, shipping times, delivery status, **late delivery risk**, customer and order geography, product and order line economics, and order/shipping timestamps; **Project 23** loads **`../datasets/supply_chain_data.csv`** with **`encoding='latin-1'`** in `supplychain_eda.ipynb` (some text fields use non-UTF-8 bytes).
 - **Fitness_trackers.csv** / **Fitness_trackers_updated.csv** — Additional fitness-tracker product data in `datasets/` (use if you extend the notebook or swap the data source).
 - **Silver price (Project 22)** — **`silver_price_forecast_2026.csv`** and **`after-eda.csv`** live under **`Project22 Silver Price Prediction/dataset/`** (not the shared root `datasets/` folder). The notebook loads them via **`../dataset/`** from **`notebooks/`**.
 
-*Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. **Projects 12 and 17** load Titanic via Seaborn (`sns.load_dataset('titanic')`); **Project 18** loads Iris via Seaborn (`sns.load_dataset('iris')`); **Project 21** uses **`sklearn.datasets.make_blobs`**. No CSV in the root **`datasets/`** folder is required for those. **`EnsembleLearning.ipynb`** also uses **XGBoost** (install separately; the notebook may include a `pip install xgboost` cell).*
+*Project 3 (Netflix) expects **netflix_titles.csv** in `datasets/` — add the file if your notebook fails to load it. Project 8 (Mini Mart) uses synthetic data in the notebook. Project 11 (House Price) loads Boston Housing via OpenML. **Projects 12 and 17** load Titanic via Seaborn (`sns.load_dataset('titanic')`); **Project 18** loads Iris via Seaborn (`sns.load_dataset('iris')`); **Project 21** uses **`sklearn.datasets.make_blobs`**. No CSV in the root **`datasets/`** folder is required for those. **`EnsembleLearning.ipynb`** also uses **XGBoost** (install separately; the notebook may include a `pip install xgboost` cell). **Project 23** needs **`supply_chain_data.csv`** in **`datasets/`**; keep **`latin-1`** when loading if you reproduce the notebook outside the repo.*
 
 ---
 
@@ -309,6 +315,7 @@ Each project folder contains a **README.md** with problem statement, dataset det
 - **Project 16:** Run `Fitness_tracker_ecommerce.ipynb` first if you need to regenerate `final_watch_data.csv`; then open `Model_creation.ipynb` (expects that CSV in the same folder).
 - **Project 20:** Ensure `datasets/diabetes.csv` exists; after running `Diabetese_prediction.ipynb`, model artifacts are written under **`Project20 ML Diabetes Predictions/models/`** (create the folder if the notebook expects it and errors).
 - **Project 22:** Open **`silver-price-forcast-EDA.ipynb`** from **`Project22 Silver Price Prediction/notebooks/`** so the relative path **`../dataset/silver_price_forecast_2026.csv`** resolves correctly.
+- **Project 23:** Open **`supplychain_eda.ipynb`** from **`Project23 supplychain/`** so **`../datasets/supply_chain_data.csv`** resolves to the shared root **`datasets/`** folder.
 
 ---
 
